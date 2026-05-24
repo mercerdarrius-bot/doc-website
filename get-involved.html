@@ -264,6 +264,69 @@ ul { list-style: none; padding: 0; }
   display: block;
   width: 24px;
   height: 1.5px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .site-nav,
+  .site-header__actions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--purple-deep);
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    padding: 0 1.25rem;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    z-index: 50;
+  }
+
+  .site-header.is-menu-open .site-nav {
+    max-height: 60vh;
+    opacity: 1;
+    visibility: visible;
+    padding: 1rem 1.25rem;
+    overflow-y: auto;
+  }
+
+  .site-header.is-menu-open .site-header__actions {
+    max-height: 30vh;
+    opacity: 1;
+    visibility: visible;
+    padding: 0.75rem 1.25rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    top: calc(100% + var(--nav-open-height, 0px));
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav__link {
+    display: block;
+    padding: 0.875rem 0;
+    color: var(--linen);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .site-header.is-menu-open .menu-toggle span:nth-child(1) {
+    transform: rotate(45deg) translateY(6.5px);
+  }
+  .site-header.is-menu-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .site-header.is-menu-open .menu-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-6.5px);
+  }
 }
 
 @media (min-width: 768px) {
@@ -1101,7 +1164,7 @@ ul { list-style: none; padding: 0; }
       </span>
     </a>
 
-    <nav class="site-nav" aria-label="Main">
+    <nav id="primary-nav" class="site-nav" aria-label="Main">
       <ul class="site-nav__list">
         <li><a href="about.html" class="site-nav__link">About</a></li>
         <li><a href="index.html#events" class="site-nav__link">Events</a></li>
@@ -1118,7 +1181,8 @@ ul { list-style: none; padding: 0; }
       <a href="index.html#give" class="site-nav__giving">Giving</a>
     </div>
 
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+      <span></span>
       <span></span>
       <span></span>
     </button>
@@ -1351,13 +1415,48 @@ ul { list-style: none; padding: 0; }
     onScroll();
   })();
 
-  var toggle = document.querySelector('.menu-toggle');
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var ex = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!ex));
+  // Mobile menu toggle
+  (function () {
+    var siteHeader = document.querySelector('.site-header');
+    var menuToggle = document.querySelector('.menu-toggle');
+    var siteNav = document.querySelector('.site-nav');
+    if (!siteHeader || !menuToggle) return;
+
+    function closeMenu() {
+      siteHeader.classList.remove('is-menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+    }
+
+    function openMenu() {
+      siteHeader.classList.add('is-menu-open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      menuToggle.setAttribute('aria-label', 'Close menu');
+      if (siteNav) {
+        requestAnimationFrame(function () {
+          siteHeader.style.setProperty('--nav-open-height', siteNav.scrollHeight + 'px');
+        });
+      }
+    }
+
+    menuToggle.addEventListener('click', function () {
+      if (siteHeader.classList.contains('is-menu-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
-  }
+
+    document.querySelectorAll('.site-nav__link, .site-nav__app, .site-nav__giving').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && siteHeader.classList.contains('is-menu-open')) {
+        closeMenu();
+      }
+    });
+  })();
 </script>
 </body>
 </html>
