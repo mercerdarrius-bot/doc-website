@@ -307,26 +307,35 @@ ul { list-style: none; padding: 0; }
     grid-column: 2;
   }
 
+  /* When the menu opens, the entire fixed header becomes one purple sheet
+     (brand row + dropdown panel) — no visual gap, no see-through to hero. */
+  .site-header.is-menu-open {
+    background: var(--purple-deep);
+  }
+  .site-header.is-menu-open.is-scrolled {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .site-nav,
   .site-header__actions {
     grid-column: 1 / -1;
     justify-self: stretch;
     display: block;
     width: 100%;
-    background: var(--purple-deep);
     max-height: 0;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
     padding: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
   }
 
   .site-header.is-menu-open .site-nav {
     max-height: 60vh;
     opacity: 1;
     visibility: visible;
-    padding: 1rem 0 0.5rem;
+    padding: 0.75rem 0 0.5rem;
     overflow-y: auto;
   }
 
@@ -334,10 +343,11 @@ ul { list-style: none; padding: 0; }
     max-height: 30vh;
     opacity: 1;
     visibility: visible;
-    padding: 0.75rem 0 1rem;
+    padding: 1rem 0 1.25rem;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 0.75rem;
+    border-top: 1px solid rgba(244, 239, 228, 0.14);
   }
 
   .site-nav__list {
@@ -348,11 +358,28 @@ ul { list-style: none; padding: 0; }
     padding: 0;
   }
 
+  .site-nav__list li {
+    text-align: center;
+  }
+
   .site-nav__link {
     display: block;
-    padding: 0.875rem 0;
+    padding: 1rem 0;
     color: var(--linen);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.125rem;
+    letter-spacing: 0.01em;
+  }
+
+  .site-nav__list li:not(:last-child) .site-nav__link {
+    border-bottom: 1px solid rgba(244, 239, 228, 0.08);
+  }
+
+  /* Balance the two action buttons to equal widths */
+  .site-header.is-menu-open .site-nav__app,
+  .site-header.is-menu-open .site-nav__giving {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
   }
 
   .site-header.is-menu-open .menu-toggle span:nth-child(1) {
@@ -2405,7 +2432,7 @@ ul { list-style: none; padding: 0; }
 <!-- ============ HERO ============ -->
 <section class="hero" id="top" data-section-theme="dark" aria-labelledby="hero-title">
   <div class="hero__media" aria-hidden="true">
-    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="Assets/photos/hero-poster.jpg">
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="Assets/photos/hero-poster.jpg">
       <source src="Assets/videos/hero.mp4" type="video/mp4">
     </video>
   </div>
@@ -3151,13 +3178,22 @@ ul { list-style: none; padding: 0; }
 
     function forcePlay() {
       heroVideo.muted = true;
+      heroVideo.setAttribute('playsinline', '');
       var playPromise = heroVideo.play();
       if (playPromise !== undefined) {
         playPromise.catch(function () {
-          document.addEventListener('click', function retryPlay() {
+          // Autoplay was blocked (commonly: iOS Low Power Mode, or no user
+          // gesture yet). Retry on the first touch/click anywhere.
+          var events = ['touchstart', 'click', 'scroll'];
+          function retryPlay() {
             heroVideo.play();
-            document.removeEventListener('click', retryPlay);
-          }, { once: true });
+            events.forEach(function (ev) {
+              document.removeEventListener(ev, retryPlay, { capture: true });
+            });
+          }
+          events.forEach(function (ev) {
+            document.addEventListener(ev, retryPlay, { capture: true, once: true, passive: true });
+          });
         });
       }
     }
