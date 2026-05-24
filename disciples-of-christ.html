@@ -1,0 +1,3113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disciples of Christ Christian Fellowship — Jacksonville, FL</title>
+<meta name="description" content="Called to serve. Sent to love. Disciples of Christ Christian Fellowship — Sunday service at 9:00 AM, 2061 Edgewood Ave W, Jacksonville, Florida. Est. 2010.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =============================================
+   DOC — Brand stylesheet
+   ============================================= */
+
+:root {
+  --purple-deep: #2D1B47;
+  --purple-darker: #1F1232;
+  --purple-lighter: #3A2456;
+  --royal: #4A2E6B;
+  --gold: #C9A961;
+  --linen: #F4EFE4;
+  --ink: #1F1626;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", -apple-system, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  --container-max: 1280px;
+  --container-px: clamp(1.25rem, 4vw, 2.5rem);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html { overflow-x: hidden; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--linen);
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+ul { list-style: none; padding: 0; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+/* ---------- Eyebrow primitive ---------- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  font-weight: 400;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.75rem;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding-block: 1.25rem;
+  transition: background-color 400ms var(--ease), padding 400ms var(--ease), box-shadow 400ms var(--ease);
+}
+
+.site-header.is-scrolled {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding-block: 0.75rem;
+}
+
+.site-header .container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding-inline: clamp(0.75rem, 2vw, 1.25rem);
+  max-width: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+  justify-self: start;
+}
+
+.brand__seal {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: contain;
+  transition: width 400ms var(--ease), height 400ms var(--ease);
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 36, "SOFT" 50;
+  font-size: 1.25rem;
+  letter-spacing: -0.012em;
+  line-height: 1.1;
+}
+
+.brand__name em {
+  display: block;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
+.site-nav {
+  display: none;
+  justify-self: center;
+}
+
+.site-header__actions {
+  justify-self: end;
+  display: none;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+/* App pill — outlined, secondary to Giving */
+.site-nav__app {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6875rem 1.125rem;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  transition: color 250ms var(--ease), background-color 250ms var(--ease), border-color 250ms var(--ease);
+  white-space: nowrap;
+}
+
+.site-nav__app svg { flex-shrink: 0; }
+
+.site-nav__app:hover,
+.site-nav__app:focus-visible {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--purple-deep);
+}
+
+.site-nav__list {
+  display: flex;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.site-nav__link {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 40, "SOFT" 50;
+  font-size: 1.1875rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-block: 0.4rem;
+  transition: color 200ms var(--ease);
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms var(--ease);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible { color: var(--gold); }
+
+.site-nav__link:hover::after,
+.site-nav__link:focus-visible::after { transform: scaleX(1); }
+
+/* Giving — solid filled block */
+.site-nav__giving {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.8125rem 1.625rem;
+  background: var(--gold);
+  border-radius: 3px;
+  transition: background-color 250ms var(--ease), transform 250ms var(--ease);
+  white-space: nowrap;
+}
+
+.site-nav__giving:hover,
+.site-nav__giving:focus-visible {
+  background: var(--linen);
+  transform: translateY(-1px);
+}
+
+/* ===== Adaptive nav theming — driven by JS as you scroll past sections ===== */
+/* Over a DARK section: light text, transparent (or dark frosted when scrolled) */
+.site-header.nav-on-dark .brand__name { color: var(--linen); }
+.site-header.nav-on-dark .site-nav__link { color: var(--linen); }
+.site-header.nav-on-dark .site-nav__app { color: var(--linen); }
+.site-header.nav-on-dark .menu-toggle span { background: var(--linen); }
+
+/* Over a LIGHT section: dark text */
+.site-header.nav-on-light .brand__name { color: var(--purple-deep); }
+.site-header.nav-on-light .site-nav__link { color: var(--purple-deep); }
+.site-header.nav-on-light .site-nav__app { color: var(--purple-deep); }
+.site-header.nav-on-light .menu-toggle span { background: var(--purple-deep); }
+
+/* Solid bar appears once scrolled, colored to match the section underneath */
+.site-header.is-scrolled.nav-on-dark {
+  background-color: rgba(22, 14, 33, 0.97);
+  box-shadow: 0 1px 0 rgba(201, 169, 97, 0.25), 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.site-header.is-scrolled.nav-on-light {
+  background-color: rgba(244, 239, 228, 0.97);
+  box-shadow: 0 1px 0 rgba(45, 27, 71, 0.12), 0 8px 30px rgba(45, 27, 71, 0.08);
+}
+
+/* gold hover stays gold in both themes */
+.site-header.nav-on-dark .site-nav__link:hover,
+.site-header.nav-on-dark .site-nav__link:focus-visible,
+.site-header.nav-on-light .site-nav__link:hover,
+.site-header.nav-on-light .site-nav__link:focus-visible { color: var(--gold); }
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.5rem;
+  justify-self: end;
+  grid-column: 3;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+}
+
+@media (min-width: 768px) {
+  .site-nav { display: block; }
+  .site-header__actions { display: block; }
+  .menu-toggle { display: none; }
+  .brand__seal { width: 58px; height: 58px; }
+  .brand__name { font-size: 1.375rem; }
+  .brand__name em { font-size: 1.0625rem; }
+  .site-header.is-scrolled .brand__seal { width: 46px; height: 46px; }
+}
+
+@media (min-width: 1024px) {
+  .site-nav__list { gap: 2.5rem; }
+  .site-nav__link { font-size: 1.3125rem; }
+  .brand__seal { width: 62px; height: 62px; }
+  .brand__name { font-size: 1.4375rem; }
+  .brand__name em { font-size: 1.125rem; }
+  .site-header.is-scrolled .brand__seal { width: 48px; height: 48px; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #160E21;
+  color: var(--linen);
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: radial-gradient(120% 120% at 50% 30%, #2D1B47 0%, #160E21 70%);
+}
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.4;
+  transition: opacity 1.2s ease;
+}
+
+.hero__video.is-fading {
+  opacity: 0;
+}
+
+.hero__gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg,
+      rgba(22, 14, 33, 0.7) 0%,
+      rgba(22, 14, 33, 0.25) 14%,
+      rgba(22, 14, 33, 0.08) 35%,
+      rgba(22, 14, 33, 0.45) 65%,
+      rgba(22, 14, 33, 0.92) 100%
+    );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-block: 7rem 3rem;
+}
+
+.hero__inner {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+  grid-template-columns: 1fr;
+}
+
+.hero__lockup { max-width: 38ch; }
+
+.hero__eyebrow {
+  margin-bottom: 1.5rem;
+  animation: fade-up 600ms var(--ease) 100ms both;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.026em;
+  color: var(--linen);
+  margin-bottom: 2.5rem;
+}
+
+.hero__title-line {
+  display: block;
+  animation: fade-up 600ms var(--ease) both;
+}
+
+.hero__title-line:nth-child(1) { animation-delay: 200ms; }
+.hero__title-line:nth-child(2) { animation-delay: 320ms; }
+.hero__title-line:nth-child(3) {
+  font-style: italic;
+  color: var(--gold);
+  animation-delay: 460ms;
+}
+
+.hero__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  animation: fade-up 600ms var(--ease) 640ms both;
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  overflow: hidden;
+  z-index: 0;
+  background: var(--linen);
+  color: var(--purple-deep);
+  transition: color 350ms var(--ease), transform 250ms var(--ease), box-shadow 250ms var(--ease);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 400ms var(--ease);
+}
+
+.btn:hover, .btn:focus-visible {
+  color: var(--purple-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(201, 169, 97, 0.28);
+}
+
+.btn:hover::before, .btn:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.btn__arrow {
+  transition: transform 300ms var(--ease);
+}
+
+.btn:hover .btn__arrow, .btn:focus-visible .btn__arrow {
+  transform: translateX(4px);
+}
+
+/* Ghost button — secondary action (transparent with outline) */
+.btn--ghost {
+  background: transparent;
+  color: var(--linen);
+  box-shadow: inset 0 0 0 1px rgba(244, 239, 228, 0.4);
+}
+.btn--ghost::before { display: none; }
+.btn--ghost:hover, .btn--ghost:focus-visible {
+  color: var(--purple-deep);
+  background: var(--linen);
+  box-shadow: inset 0 0 0 1px var(--linen);
+}
+
+/* Install instructions modal */
+.install-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+.install-modal[hidden] { display: none; }
+.install-modal__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 8, 26, 0.72);
+  backdrop-filter: blur(3px);
+  animation: installFade 250ms var(--ease);
+}
+.install-modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--linen);
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 2.5rem 2rem 2rem;
+  box-shadow: 0 30px 80px rgba(15, 8, 26, 0.5);
+  animation: installRise 300ms var(--ease);
+}
+.install-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--purple-deep);
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 200ms var(--ease);
+}
+.install-modal__close:hover, .install-modal__close:focus-visible {
+  background: rgba(45, 27, 71, 0.08);
+}
+.install-modal__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--purple-deep);
+  margin: 0.4rem 0 0.6rem;
+}
+.install-modal__lead {
+  font-family: var(--font-body);
+  color: var(--ink);
+  opacity: 0.85;
+  margin: 0 0 1.5rem;
+  max-width: 46ch;
+}
+.install-modal__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.install-card {
+  background: #fff;
+  border: 1px solid rgba(45, 27, 71, 0.12);
+  border-radius: 4px;
+  padding: 1.25rem 1.25rem 1.4rem;
+}
+.install-card__head {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin: 0 0 0.5rem;
+}
+.install-card__note {
+  font-size: 0.85rem;
+  color: var(--ink);
+  opacity: 0.75;
+  margin: 0 0 0.9rem;
+}
+.install-card__steps {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.install-card__steps li { padding-left: 0.2rem; }
+.install-card__steps strong { color: var(--purple-deep); }
+.install-modal__cta {
+  margin-top: 1.5rem;
+  background: var(--purple-deep);
+  color: var(--linen);
+}
+.install-modal__cta::before { background: var(--royal); }
+.install-modal__cta:hover, .install-modal__cta:focus-visible { color: var(--linen); }
+
+@keyframes installFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes installRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 560px) {
+  .install-modal__cols { grid-template-columns: 1fr; }
+  .install-modal__dialog { padding: 2.25rem 1.25rem 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .install-modal__scrim, .install-modal__dialog { animation: none; }
+}
+
+.hero__cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--linen);
+  transition: color 250ms var(--ease);
+}
+
+.hero__cta-play {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 239, 228, 0.5);
+  color: var(--linen);
+  flex-shrink: 0;
+  transition: border-color 300ms var(--ease), background-color 300ms var(--ease), color 300ms var(--ease), transform 300ms var(--ease);
+}
+
+.hero__cta-play svg {
+  position: relative;
+  z-index: 1;
+  margin-left: 1px;
+  transition: transform 300ms var(--ease);
+}
+
+/* pulsing ring to signal "live" */
+.hero__cta-play-pulse {
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  opacity: 0;
+  animation: live-pulse 2.4s ease-out infinite;
+}
+
+@keyframes live-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.hero__cta-secondary-text {
+  position: relative;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 250ms var(--ease);
+}
+
+.hero__cta-secondary:hover .hero__cta-play,
+.hero__cta-secondary:focus-visible .hero__cta-play {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--purple-deep);
+  transform: scale(1.08);
+}
+
+.hero__cta-secondary:hover .hero__cta-play svg,
+.hero__cta-secondary:focus-visible .hero__cta-play svg {
+  transform: scale(1.1);
+}
+
+.hero__cta-secondary:hover .hero__cta-secondary-text,
+.hero__cta-secondary:focus-visible .hero__cta-secondary-text {
+  border-bottom-color: var(--gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__cta-play-pulse { animation: none; }
+}
+
+.hero__mark {
+  align-self: end;
+  text-align: left;
+  margin-top: 1.5rem;
+  animation: fade-up 600ms var(--ease) 800ms both;
+}
+
+.hero__mark-line-1 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 24;
+  font-style: italic;
+  font-size: 0.8125rem;
+  color: var(--gold);
+}
+
+.hero__mark-line-2 {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--linen);
+  opacity: 0.5;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .hero__inner { grid-template-columns: 1fr auto; }
+  .hero__mark { text-align: right; margin-top: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Welcome / What to expect ---------- */
+.welcome {
+  background: var(--linen);
+  padding-block: 6rem;
+}
+
+.welcome__intro {
+  max-width: 60ch;
+  margin-bottom: 4rem;
+}
+
+.welcome__eyebrow {
+  margin-bottom: 1.5rem;
+  color: var(--royal);
+}
+.welcome__eyebrow::before { background: var(--royal); }
+
+.welcome__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  color: var(--purple-deep);
+  margin-bottom: 1.75rem;
+  max-width: 20ch;
+}
+
+.welcome__title em {
+  font-style: italic;
+  color: var(--royal);
+}
+
+.welcome__lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 54ch;
+}
+
+/* What to expect — three steps */
+.expect {
+  border-top: 1px solid rgba(45, 27, 71, 0.14);
+  padding-top: 2.5rem;
+}
+
+.expect__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin-bottom: 2.5rem;
+}
+
+.expect__grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .expect__grid--two { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+}
+
+.expect__item {
+  position: relative;
+}
+
+.expect__num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.expect__heading {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 40, "SOFT" 50;
+  font-weight: 500;
+  font-size: 1.375rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--purple-deep);
+  margin-bottom: 0.625rem;
+}
+
+.expect__text {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+/* Directions block */
+.directions {
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(45, 27, 71, 0.14);
+}
+
+.directions__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin-bottom: 0.875rem;
+}
+
+.directions__address {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 36;
+  font-size: 1.25rem;
+  color: var(--purple-deep);
+  margin-bottom: 1.5rem;
+}
+
+.directions__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Map links (used in directions block — light section variant) */
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border: 1px solid rgba(45, 27, 71, 0.22);
+  border-radius: 3px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--purple-deep);
+  transition: border-color 250ms var(--ease), background-color 250ms var(--ease), color 250ms var(--ease);
+}
+
+.map-link svg {
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: color 250ms var(--ease);
+}
+
+.map-link span:not(.map-link__arrow) { flex: 1; }
+
+.map-link__arrow {
+  color: var(--gold);
+  transition: transform 250ms var(--ease), color 250ms var(--ease);
+}
+
+.map-link:hover,
+.map-link:focus-visible {
+  background: var(--purple-deep);
+  border-color: var(--purple-deep);
+  color: var(--linen);
+}
+
+.map-link:hover svg,
+.map-link:focus-visible svg,
+.map-link:hover .map-link__arrow,
+.map-link:focus-visible .map-link__arrow {
+  color: var(--gold);
+}
+
+.map-link:hover .map-link__arrow,
+.map-link:focus-visible .map-link__arrow {
+  transform: translateX(3px);
+}
+
+/* Optional visit / contact form */
+.visit-form {
+  margin-top: 3.5rem;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  scroll-margin-top: 6rem;
+}
+
+.visit-form__phone {
+  margin-top: 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+.visit-form__phone a {
+  font-weight: 500;
+  color: var(--royal);
+  border-bottom: 1px solid rgba(74, 46, 107, 0.3);
+  padding-bottom: 1px;
+  transition: border-color 200ms var(--ease), color 200ms var(--ease);
+}
+
+.visit-form__phone a:hover,
+.visit-form__phone a:focus-visible {
+  color: var(--purple-deep);
+  border-bottom-color: var(--gold);
+}
+
+.visit-form__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin-bottom: 0.875rem;
+}
+
+.visit-form__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72, "SOFT" 50;
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--purple-deep);
+  margin-bottom: 1rem;
+}
+
+.visit-form__title em {
+  font-style: italic;
+  color: var(--royal);
+  font-size: 1.25rem;
+}
+
+.visit-form__text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  opacity: 0.85;
+  max-width: 42ch;
+}
+
+.visit-form__form {
+  background: #FBF8F1;
+  border: 1px solid rgba(45, 27, 71, 0.1);
+  border-radius: 8px;
+  padding: 2.25rem;
+  box-shadow: 0 1px 2px rgba(45, 27, 71, 0.04), 0 12px 40px rgba(45, 27, 71, 0.06);
+  display: grid;
+  gap: 1.75rem 1.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.field--full { grid-column: 1 / -1; }
+
+.field label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--royal);
+}
+
+.field__optional {
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  opacity: 0.45;
+}
+
+.field input,
+.field textarea {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 24, "SOFT" 50;
+  font-size: 1.0625rem;
+  color: var(--purple-deep);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(45, 27, 71, 0.22);
+  border-radius: 0;
+  padding: 0.375rem 0 0.625rem;
+  transition: border-color 250ms var(--ease);
+  resize: vertical;
+}
+
+.field textarea {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+  border-bottom-width: 1.5px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(31, 22, 38, 0.32);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+}
+
+/* Date input — match the underline aesthetic */
+.field input[type="date"] {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 24, "SOFT" 50;
+  color: var(--purple-deep);
+  cursor: pointer;
+}
+
+.field input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.55;
+  filter: invert(18%) sepia(24%) saturate(1400%) hue-rotate(230deg) brightness(92%);
+  transition: opacity 200ms var(--ease);
+}
+
+.field input[type="date"]:hover::-webkit-calendar-picker-indicator,
+.field input[type="date"]:focus::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+/* Show placeholder-like dim state when no date chosen (webkit) */
+.field input[type="date"]:not(:focus):invalid::-webkit-datetime-edit {
+  color: rgba(31, 22, 38, 0.32);
+}
+
+.visit-form__form .btn {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 0.75rem;
+}
+
+/* Visually hidden — keeps native select for submission/accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Custom premium dropdown */
+.dropdown { position: relative; }
+
+.dropdown__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 24, "SOFT" 50;
+  font-size: 1.0625rem;
+  color: var(--purple-deep);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(45, 27, 71, 0.22);
+  border-radius: 0;
+  padding: 0.375rem 0 0.625rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 250ms var(--ease);
+}
+
+.dropdown__trigger:focus-visible {
+  outline: none;
+  border-bottom-color: var(--gold);
+  border-bottom-width: 1.5px;
+}
+
+.dropdown.is-open .dropdown__trigger {
+  border-bottom-color: var(--gold);
+  border-bottom-width: 1.5px;
+}
+
+.dropdown__value[data-placeholder="true"] {
+  color: rgba(31, 22, 38, 0.32);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+}
+
+.dropdown__chevron {
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 300ms var(--ease);
+}
+
+.dropdown.is-open .dropdown__chevron { transform: rotate(180deg); }
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0; right: 0;
+  z-index: 20;
+  background: #fff;
+  border: 1px solid rgba(45, 27, 71, 0.1);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(45, 27, 71, 0.08), 0 16px 48px rgba(45, 27, 71, 0.14);
+  padding: 0.5rem;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 220ms var(--ease), transform 220ms var(--ease), visibility 220ms var(--ease);
+}
+
+.dropdown.is-open .dropdown__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown__option {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  padding: 0.75rem 0.875rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 150ms var(--ease), color 150ms var(--ease);
+}
+
+.dropdown__option:hover,
+.dropdown__option.is-active {
+  background: var(--linen);
+  color: var(--purple-deep);
+}
+
+.dropdown__option[aria-selected="true"] {
+  color: var(--royal);
+  font-weight: 500;
+}
+
+.dropdown__option[aria-selected="true"]::after {
+  content: "✓";
+  float: right;
+  color: var(--gold);
+}
+
+@media (min-width: 768px) {
+  .directions__links { flex-direction: row; flex-wrap: wrap; }
+  .directions__links .map-link { flex: 1; min-width: 220px; }
+  .visit-form { grid-template-columns: 0.85fr 1.15fr; gap: 4rem; align-items: start; }
+}
+
+/* ---------- Services ---------- */
+.services {
+  background: var(--purple-deep);
+  color: var(--linen);
+  padding-block: 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 30% 50%, rgba(201, 169, 97, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.services__inner {
+  position: relative;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: 1fr;
+}
+
+.services__heading { max-width: 24ch; }
+
+.services__heading .eyebrow { margin-bottom: 1.5rem; }
+
+.services__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--linen);
+}
+
+.services__title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.services__intro {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--linen);
+  opacity: 0.8;
+  margin-top: 1.5rem;
+  max-width: 42ch;
+}
+
+.services__grid {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+}
+
+.service-card {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(244, 239, 228, 0.18);
+}
+
+.service-card:last-of-type {
+  border-bottom: 1px solid rgba(244, 239, 228, 0.18);
+}
+
+.service-card__day {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.service-card__time {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72, "SOFT" 50;
+  font-weight: 400;
+  font-size: 2.25rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--linen);
+  margin-bottom: 0.5rem;
+}
+
+.service-card__detail {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--linen);
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+.services__address {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(244, 239, 228, 0.18);
+}
+
+.services__address-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.services__address-line {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 36;
+  font-size: 1.25rem;
+  color: var(--linen);
+  line-height: 1.4;
+}
+
+.services__maps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+
+@media (min-width: 900px) {
+  .services__inner {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+}
+
+/* ---------- Events / Gatherings ---------- */
+.events {
+  background: var(--royal);
+  color: var(--linen);
+  padding-block: 6rem;
+}
+
+.events__heading { max-width: 50ch; margin-bottom: 3.5rem; }
+.events__heading .eyebrow { margin-bottom: 1.5rem; }
+
+.events__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  margin-bottom: 1.25rem;
+}
+.events__title em { font-style: italic; color: var(--gold); }
+
+.events__intro {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  opacity: 0.85;
+  max-width: 44ch;
+}
+
+.events__weekly {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 2.5rem;
+}
+
+.gathering {
+  padding: 2rem;
+  background: rgba(244, 239, 228, 0.05);
+  border: 1px solid rgba(244, 239, 228, 0.14);
+  border-radius: 10px;
+  transition: transform 300ms var(--ease), border-color 300ms var(--ease), background-color 300ms var(--ease);
+}
+
+.gathering:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 169, 97, 0.5);
+  background: rgba(244, 239, 228, 0.08);
+}
+
+.gathering__tag {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.gathering__name {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 40, "SOFT" 50;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+
+.gathering__time {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72, "SOFT" 50;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.875rem;
+}
+
+.gathering__detail {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.events__special {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(244, 239, 228, 0.16);
+}
+
+.events__special-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.875rem;
+}
+
+.events__special-note {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  opacity: 0.82;
+  max-width: 54ch;
+}
+
+.events__special-note a {
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201, 169, 97, 0.4);
+  padding-bottom: 1px;
+  transition: border-color 200ms var(--ease);
+}
+.events__special-note a:hover { border-bottom-color: var(--gold); }
+
+@media (min-width: 700px) {
+  .events__weekly { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+
+/* ---------- Pastor ---------- */
+.pastor {
+  background: var(--purple-deep);
+  color: var(--linen);
+  padding-block: 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pastor__inner {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.pastor__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
+  background: var(--linen);
+  border: 1px solid rgba(201, 169, 97, 0.35);
+  padding: 1.125rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+  transition: transform 450ms var(--ease), box-shadow 450ms var(--ease);
+  will-change: transform;
+}
+
+.pastor__photo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.38);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pastor__photo { transition: none; }
+  .pastor__photo:hover { transform: none; }
+}
+
+/* The gold fillet: thin gold line + small gap between mat and photo */
+.pastor__photo-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--gold);
+  padding: 6px;
+  border-radius: 3px;
+}
+
+.pastor__photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  border-radius: 2px;
+}
+
+.pastor__photo-placeholder {
+  position: absolute;
+  inset: 6px;
+  display: none;
+  align-items: flex-end;
+  padding: 1.5rem;
+  border-radius: 2px;
+  background:
+    radial-gradient(120% 120% at 30% 20%, rgba(201, 169, 97, 0.18), transparent 60%),
+    linear-gradient(160deg, var(--purple-lighter), var(--purple-darker));
+}
+
+.pastor__photo-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.5);
+}
+
+.pastor__caption {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-top: 1rem;
+}
+
+.pastor__eyebrow { margin-bottom: 1.5rem; }
+
+.pastor__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--linen);
+  margin-bottom: 1.75rem;
+}
+
+.pastor__title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.pastor__text {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--linen);
+  opacity: 0.85;
+  max-width: 52ch;
+}
+
+.pastor__text p + p { margin-top: 1.25rem; }
+
+.pastor__quote {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(201, 169, 97, 0.25);
+}
+
+.pastor__quote p {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72, "SOFT" 50;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--gold);
+  max-width: 36ch;
+}
+
+@media (min-width: 900px) {
+  .pastor__inner {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 5rem;
+  }
+}
+
+/* ---------- Moments / placeholders ---------- */
+.moments {
+  background: var(--linen);
+  padding-block: 6rem;
+}
+
+.moments__heading {
+  margin-bottom: 4rem;
+  max-width: 36ch;
+}
+
+.moments__heading .eyebrow {
+  margin-bottom: 1.5rem;
+  color: var(--royal);
+}
+.moments__heading .eyebrow::before { background: var(--royal); }
+
+.moments__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--purple-deep);
+}
+
+.moments__title em {
+  font-style: italic;
+  color: var(--royal);
+}
+
+.moments__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+.moment {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.moment__media {
+  position: relative;
+  overflow: hidden;
+  background: var(--purple-darker);
+}
+
+.moment--portrait .moment__media { aspect-ratio: 3 / 4; }
+.moment--wide .moment__media { aspect-ratio: 16 / 9; }
+
+.moment__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  transition: transform 700ms var(--ease);
+}
+
+.moment--wide .moment__media img { object-position: center 30%; }
+
+.moment:hover .moment__media img { transform: scale(1.05); }
+
+/* Placeholder fallback (hidden unless image fails) */
+.moment__placeholder {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(201, 169, 97, 0.15) 0%, transparent 65%),
+    linear-gradient(135deg, var(--purple-darker) 0%, var(--purple-deep) 60%, var(--purple-lighter) 100%);
+}
+
+.moment__placeholder-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* Caption sits over a dark scrim at the bottom of the photo */
+.moment__caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 4rem 1.5rem 1.5rem;
+  color: var(--linen);
+  background: linear-gradient(to top, rgba(18, 11, 27, 0.96) 0%, rgba(18, 11, 27, 0.82) 35%, rgba(18, 11, 27, 0.4) 70%, transparent 100%);
+}
+
+.moment__caption-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.moment__caption-text {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 36, "SOFT" 50;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  opacity: 1;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 700px) {
+  .moments__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .moment--wide { grid-column: 1 / -1; }
+}
+
+/* ---------- Prayer ---------- */
+.prayer {
+  background: var(--purple-deep);
+  color: var(--linen);
+  padding-block: 6rem;
+}
+
+.prayer__inner {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.prayer__eyebrow { margin-bottom: 1.5rem; }
+
+.prayer__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  margin-bottom: 1.5rem;
+  max-width: 18ch;
+}
+
+.prayer__title em { font-style: italic; color: var(--gold); }
+
+.prayer__text {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  opacity: 0.82;
+  max-width: 46ch;
+  margin-bottom: 1.25rem;
+}
+
+.prayer__assurance {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.prayer__form {
+  background: rgba(244, 239, 228, 0.04);
+  border: 1px solid rgba(244, 239, 228, 0.12);
+  border-radius: 10px;
+  padding: 2.25rem;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.prayer__form .field { display: flex; flex-direction: column; gap: 0.625rem; }
+
+.prayer__form .field label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.prayer__form .field__optional {
+  letter-spacing: 0.08em;
+  color: var(--linen);
+  opacity: 0.5;
+}
+
+.prayer__form .field input,
+.prayer__form .field textarea {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 24, "SOFT" 50;
+  font-size: 1.0625rem;
+  color: var(--linen);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.3);
+  border-radius: 0;
+  padding: 0.375rem 0 0.625rem;
+  transition: border-color 250ms var(--ease);
+  resize: vertical;
+}
+
+.prayer__form .field textarea {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.prayer__form .field input:focus,
+.prayer__form .field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+  border-bottom-width: 1.5px;
+}
+
+.prayer__form .field input::placeholder,
+.prayer__form .field textarea::placeholder {
+  color: rgba(244, 239, 228, 0.4);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+}
+
+.prayer__form .btn { justify-self: start; }
+
+@media (min-width: 900px) {
+  .prayer__inner { grid-template-columns: 0.95fr 1.05fr; gap: 4.5rem; }
+}
+
+/* ---------- App ---------- */
+.app {
+  background: var(--purple-darker);
+  color: var(--linen);
+  padding-block: 6rem;
+  overflow: hidden;
+}
+
+.app__inner {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.app__eyebrow { margin-bottom: 1.5rem; }
+
+.app__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  margin-bottom: 1.5rem;
+  max-width: 16ch;
+}
+.app__title em { font-style: italic; color: var(--gold); }
+
+.app__text {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  opacity: 0.82;
+  max-width: 46ch;
+  margin-bottom: 2rem;
+}
+
+.app__features {
+  display: grid;
+  gap: 0.875rem;
+  margin-bottom: 2.5rem;
+}
+.app__features li {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  font-size: 0.9375rem;
+  opacity: 0.9;
+}
+.app__feature-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.app__actions { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+
+.app__hint {
+  margin-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.8;
+}
+
+.install-card__logo {
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.15em;
+  margin-right: 0.5em;
+}
+
+.app__ios {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(244, 239, 228, 0.05);
+  border: 1px solid rgba(244, 239, 228, 0.14);
+  border-radius: 8px;
+  max-width: 36ch;
+}
+.app__ios-title {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.app__ios-steps {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  opacity: 0.88;
+}
+.app__ios-steps strong { color: var(--gold); font-weight: 600; }
+
+/* Phone mockup */
+.app__visual { display: flex; justify-content: center; }
+.app__phone {
+  position: relative;
+  width: 240px;
+  aspect-ratio: 9 / 19;
+  background: linear-gradient(160deg, #2D1B47, #160E21);
+  border: 2px solid rgba(201, 169, 97, 0.4);
+  border-radius: 36px;
+  padding: 14px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+.app__phone-notch {
+  position: absolute;
+  top: 14px; left: 50%; transform: translateX(-50%);
+  width: 70px; height: 18px;
+  background: #160E21;
+  border-radius: 0 0 12px 12px;
+  z-index: 2;
+}
+.app__phone-screen {
+  width: 100%; height: 100%;
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 35%, rgba(201,169,97,0.16), transparent 70%),
+    linear-gradient(180deg, var(--purple-lighter), var(--purple-darker));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+.app__phone-seal { width: 84px; height: 84px; border-radius: 50%; margin-bottom: 0.75rem; }
+.app__phone-name {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 40;
+  font-size: 1.125rem;
+  color: var(--linen);
+  text-align: center;
+  line-height: 1.1;
+}
+.app__phone-tag {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .app__inner { grid-template-columns: 1.1fr 0.9fr; gap: 4rem; }
+  .app__phone { width: 280px; }
+}
+
+/* ---------- Giving ---------- */
+.giving {
+  background: var(--linen);
+  padding-block: 6rem;
+}
+
+.giving__inner {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.giving__eyebrow {
+  margin-bottom: 1.5rem;
+  color: var(--royal);
+}
+.giving__eyebrow::before { background: var(--royal); }
+
+.giving__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  color: var(--purple-deep);
+  margin-bottom: 1.5rem;
+  max-width: 18ch;
+}
+
+.giving__title em {
+  font-style: italic;
+  color: var(--royal);
+}
+
+.giving__lead {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 50ch;
+  margin-bottom: 1.25rem;
+}
+
+.giving__note {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: 0.7;
+  max-width: 46ch;
+}
+
+/* The dark giving panel */
+.giving__panel {
+  background: var(--purple-deep);
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 50px rgba(45, 27, 71, 0.18);
+}
+
+.giving__panel-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.give-method {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(244, 239, 228, 0.16);
+  transition: padding-left 250ms var(--ease);
+}
+
+.give-method:first-of-type { border-top: none; }
+
+.give-method__name {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 40, "SOFT" 50;
+  font-weight: 500;
+  font-size: 1.375rem;
+  color: var(--linen);
+  flex-shrink: 0;
+}
+
+.give-method__handle {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--linen);
+  opacity: 0.6;
+  flex: 1;
+}
+
+.give-method__arrow {
+  color: var(--gold);
+  font-size: 1.125rem;
+  transition: transform 250ms var(--ease);
+}
+
+.give-method:hover,
+.give-method:focus-visible {
+  padding-left: 0.75rem;
+}
+
+.give-method:hover .give-method__arrow,
+.give-method:focus-visible .give-method__arrow {
+  transform: translateX(4px);
+}
+
+.give-method:hover .give-method__handle,
+.give-method:focus-visible .give-method__handle {
+  opacity: 0.9;
+}
+
+.giving__panel-foot {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(244, 239, 228, 0.16);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--linen);
+  opacity: 0.65;
+}
+
+@media (min-width: 900px) {
+  .giving__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4.5rem;
+  }
+}
+
+/* ---------- Quiet CTA ---------- */
+.visit-cta {
+  background: var(--purple-deep);
+  color: var(--linen);
+  padding-block: 6rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.visit-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 70% at 50% 30%, rgba(201, 169, 97, 0.16) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.visit-cta__inner {
+  position: relative;
+  max-width: 32ch;
+  margin-inline: auto;
+}
+
+.visit-cta__eyebrow {
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+}
+
+.visit-cta__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--linen);
+  margin-bottom: 1.5rem;
+}
+
+.visit-cta__title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.visit-cta__body {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--purple-darker);
+  color: var(--linen);
+  padding-block: 4rem 1.5rem;
+}
+
+.site-footer__top {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.12);
+}
+
+.site-footer__brand-tag {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: var(--gold);
+  margin-top: 1rem;
+  max-width: 28ch;
+  line-height: 1.5;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.footer-social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 239, 228, 0.22);
+  color: var(--linen);
+  transition: color 250ms var(--ease), border-color 250ms var(--ease), background-color 250ms var(--ease), transform 250ms var(--ease);
+}
+
+.footer-social__link:hover,
+.footer-social__link:focus-visible {
+  color: var(--purple-deep);
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.footer-col__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footer-col li {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.footer-col a {
+  transition: color 200ms var(--ease);
+}
+
+.footer-col a:hover, .footer-col a:focus-visible {
+  color: var(--gold);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  gap: 1rem;
+}
+
+.site-footer__bottom > span:first-child {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.footer-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 250ms var(--ease);
+  opacity: 0.85;
+}
+
+.footer-credit:hover,
+.footer-credit:focus-visible { opacity: 1; }
+
+.footer-credit__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--linen);
+  opacity: 0.55;
+}
+
+.footer-credit__mark {
+  display: inline-flex;
+  align-items: center;
+  color: var(--gold);
+  transition: transform 250ms var(--ease);
+}
+
+.footer-credit:hover .footer-credit__mark,
+.footer-credit:focus-visible .footer-credit__mark {
+  transform: rotate(-4deg);
+}
+
+.footer-credit__name {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--linen);
+  letter-spacing: 0.01em;
+}
+
+@media (min-width: 768px) {
+  .site-footer__top {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 4rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<!-- data-nav-theme on <body>: "dark" = light text (for dark/video pages), "light" = dark text (for light pages) -->
+<header class="site-header" role="banner">
+  <div class="container">
+    <a href="#top" class="brand" aria-label="Disciples of Christ Christian Fellowship — home">
+      <img class="brand__seal" src="Assets/photos/logo.png" alt="Disciples of Christ Christian Fellowship seal">
+      <span class="brand__name">
+        Disciples of Christ
+        <em>Christian Fellowship</em>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="about.html" class="site-nav__link">About</a></li>
+        <li><a href="#events" class="site-nav__link">Events</a></li>
+        <li><a href="#prayer" class="site-nav__link">Prayer</a></li>
+        <li><a href="get-involved.html" class="site-nav__link">Get Involved</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a href="#app" class="site-nav__app">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        App
+      </a>
+      <a href="#give" class="site-nav__giving">Giving</a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" data-section-theme="dark" aria-labelledby="hero-title">
+  <div class="hero__media" aria-hidden="true">
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="Assets/photos/hero-poster.jpg">
+      <source src="Assets/videos/hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero__gradient" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__lockup">
+          <p class="eyebrow hero__eyebrow">
+            <span>Sunday · 9 AM · 2061 Edgewood Ave W</span>
+          </p>
+
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__title-line">Called to serve.</span>
+            <span class="hero__title-line">Sent to love.</span>
+            <span class="hero__title-line">Disciples of Christ.</span>
+          </h1>
+
+          <div class="hero__cta-row">
+            <a href="#visit" class="btn">
+              Plan Your Visit
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://www.youtube.com/@DOCJax/streams" target="_blank" rel="noopener" class="hero__cta-secondary">
+              <span class="hero__cta-play" aria-hidden="true">
+                <span class="hero__cta-play-pulse"></span>
+                <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M5 3.5v17l15-8.5z"/></svg>
+              </span>
+              <span class="hero__cta-secondary-text">Watch live</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__mark" aria-hidden="true">
+          <p class="hero__mark-line-1">Est. 2010</p>
+          <p class="hero__mark-line-2">Jacksonville, FL</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAN YOUR VISIT ============ -->
+<section class="welcome" id="visit" data-section-theme="light" aria-labelledby="welcome-title">
+  <div class="container">
+
+    <div class="welcome__intro">
+      <p class="eyebrow welcome__eyebrow"><span>Plan your visit</span></p>
+      <h2 class="welcome__title" id="welcome-title">
+        Come and experience worship that <em>meets you where you are.</em>
+      </h2>
+      <p class="welcome__lead">
+        You can expect a life-giving environment and an inspiring word that's applicable to daily
+        life. Whether you've been in church for years or you're walking in for the very first time,
+        there's a place for you here.
+      </p>
+    </div>
+
+    <div class="visit-form" id="join">
+      <div class="visit-form__intro">
+        <p class="visit-form__label">Let us know you're coming</p>
+        <h3 class="visit-form__title">There's a seat here for you.</h3>
+        <p class="visit-form__text">
+          You're always welcome to just walk in — but if you'd like, send us a note and our
+          hospitality team will be ready to welcome you when you arrive.
+        </p>
+        <p class="visit-form__phone">
+          Prefer to call?
+          <a href="tel:+19047655683">(904) 765-5683</a>
+        </p>
+      </div>
+
+      <!-- FORMSPREE: replace the action URL below with your Formspree endpoint once created -->
+      <form class="visit-form__form" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+        <div class="field">
+          <label for="vf-name">Your name</label>
+          <input type="text" id="vf-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="vf-when">Which Sunday are you coming?</label>
+          <input type="date" id="vf-when" name="visit_date">
+        </div>
+        <div class="field field--full">
+          <label id="vf-party-label">How many should we save a seat for?</label>
+          <!-- Real select (hidden) keeps form submission + accessibility intact -->
+          <select id="vf-party" name="party_size" class="visually-hidden" tabindex="-1" aria-hidden="true">
+            <option value="" selected>Let us know</option>
+            <option value="Just me">Just me</option>
+            <option value="Me and one other">Me and one other</option>
+            <option value="A few of us (3–4)">A few of us (3–4)</option>
+            <option value="5 or more">5 or more</option>
+            <option value="Bringing the whole family">Bringing the whole family</option>
+          </select>
+          <!-- Custom dropdown UI -->
+          <div class="dropdown" data-dropdown>
+            <button type="button" class="dropdown__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="vf-party-label">
+              <span class="dropdown__value" data-placeholder="true">Let us know</span>
+              <svg class="dropdown__chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <ul class="dropdown__menu" role="listbox" aria-labelledby="vf-party-label">
+              <li class="dropdown__option" role="option" data-value="Just me">Just me</li>
+              <li class="dropdown__option" role="option" data-value="Me and one other">Me and one other</li>
+              <li class="dropdown__option" role="option" data-value="A few of us (3–4)">A few of us (3–4)</li>
+              <li class="dropdown__option" role="option" data-value="5 or more">5 or more</li>
+              <li class="dropdown__option" role="option" data-value="Bringing the whole family">Bringing the whole family</li>
+            </ul>
+          </div>
+        </div>
+        <button type="submit" class="btn">
+          Send it our way
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </button>
+      </form>
+    </div>
+
+    <div class="directions">
+      <p class="directions__label">Need directions?</p>
+      <p class="directions__address">2061 Edgewood Ave W, Jacksonville, FL 32208</p>
+      <div class="directions__links">
+        <a class="map-link" href="https://maps.apple.com/?address=2061+Edgewood+Ave+W,+Jacksonville,+FL+32208" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Open in Apple Maps</span>
+          <span class="map-link__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=2061+Edgewood+Ave+W,+Jacksonville,+FL+32208" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Open in Google Maps</span>
+          <span class="map-link__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ EVENTS / GATHERINGS ============ -->
+<section class="events" id="events" data-section-theme="dark" aria-labelledby="events-title">
+  <div class="container">
+    <div class="events__heading">
+      <p class="eyebrow"><span>When we gather</span></p>
+      <h2 class="events__title" id="events-title">
+        The doors are <em>open.</em>
+      </h2>
+      <p class="events__intro">
+        Every week, the doors are open twice. Come worship, grow, and be known.
+      </p>
+    </div>
+
+    <div class="events__weekly">
+      <article class="gathering">
+        <span class="gathering__tag">Every Sunday</span>
+        <h3 class="gathering__name">Sunday Worship</h3>
+        <p class="gathering__time">9:00 AM</p>
+        <p class="gathering__detail">Our main gathering — worship, the Word, and a welcome that's ready for you.</p>
+      </article>
+
+      <article class="gathering">
+        <span class="gathering__tag">Every Wednesday</span>
+        <h3 class="gathering__name">Bible Study</h3>
+        <p class="gathering__time">6:15 PM</p>
+        <p class="gathering__detail">A midweek pause to dig into Scripture together and grow in the Word.</p>
+      </article>
+    </div>
+
+    <div class="events__special">
+      <p class="events__special-label">Special &amp; upcoming</p>
+      <p class="events__special-note">
+        Revivals, community outreaches, and special services are announced here and across our
+        <a href="https://www.facebook.com/DOCRecharge2020" target="_blank" rel="noopener">Facebook</a>
+        and <a href="https://www.youtube.com/@DOCJax" target="_blank" rel="noopener">YouTube</a>.
+        Check back soon.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PASTOR ============ -->
+<section class="pastor" id="about" data-section-theme="dark" aria-labelledby="pastor-title">
+  <div class="container">
+    <div class="pastor__inner">
+
+      <div class="pastor__portrait">
+        <div class="pastor__photo">
+          <div class="pastor__photo-frame">
+            <!-- Drop the real photo in: replace src with your file, e.g. Assets/photos/pastor-lecount.jpg -->
+            <img src="Assets/photos/pastor-lecount.jpg" alt="Pastor Robert LeCount Jr. and Lady Diane LeCount" loading="lazy" decoding="async"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="pastor__photo-placeholder" role="img" aria-label="Portrait of Pastor Robert LeCount Jr. and Lady Diane LeCount">
+              <span class="pastor__photo-label">Portrait · Pastor &amp; Lady LeCount</span>
+            </div>
+          </div>
+        </div>
+        <p class="pastor__caption">Pastor Robert LeCount Jr. &amp; Lady Diane LeCount</p>
+      </div>
+
+      <div class="pastor__body">
+        <p class="eyebrow pastor__eyebrow"><span>Our pastor</span></p>
+        <h2 class="pastor__title" id="pastor-title">
+          Meet Pastor <em>Robert LeCount Jr.</em>
+        </h2>
+
+        <div class="pastor__text">
+          <p>
+            A Jacksonville native, Pastor LeCount answered the call to ministry as a young man and
+            has spent his life since serving this city. In 2003, after years of faithful pastoring,
+            God birthed the vision for Disciples of Christ — a church built on love for God and love
+            for the neighborhood around it.
+          </p>
+          <p>
+            He leads alongside his wife, Lady Diane, with a heart that has always been in the
+            community. He founded the Quench the Violence Rally to stand against the loss of life in
+            our streets, and together they stay close to the work that matters — feeding, clothing,
+            and caring for people right where they are.
+          </p>
+        </div>
+
+        <blockquote class="pastor__quote">
+          <p>"A caring leader will build up his church, and a caring church will build up its leader."</p>
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOMENTS ============ -->
+<section class="moments" data-section-theme="light" aria-labelledby="moments-title">
+  <div class="container">
+    <div class="moments__heading">
+      <p class="eyebrow"><span>Real moments</span></p>
+      <h2 class="moments__title" id="moments-title">
+        This is who <em>we are.</em>
+      </h2>
+    </div>
+
+    <div class="moments__grid">
+      <figure class="moment moment--portrait">
+        <div class="moment__media">
+          <img src="Assets/photos/moment-community.jpg" alt="Pastor LeCount speaking at an outdoor community event" loading="lazy" decoding="async">
+          <div class="moment__placeholder" role="img" aria-label="Pastor LeCount speaking at a community event">
+            <span class="moment__placeholder-label">Photo · Community</span>
+          </div>
+          <figcaption class="moment__caption">
+            <span class="moment__caption-label">Out in the neighborhood</span>
+            <span class="moment__caption-text">We don't stay inside these walls. The work is out where people are.</span>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure class="moment moment--portrait">
+        <div class="moment__media">
+          <img src="Assets/photos/moment-kids.jpg" alt="Children at an outdoor church community gathering" loading="lazy" decoding="async">
+          <div class="moment__placeholder" role="img" aria-label="Children at a church gathering">
+            <span class="moment__placeholder-label">Photo · Family</span>
+          </div>
+          <figcaption class="moment__caption">
+            <span class="moment__caption-label">Room for the kids</span>
+            <span class="moment__caption-text">A church wide enough for every generation — bring the whole family.</span>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure class="moment moment--wide">
+        <div class="moment__media">
+          <img src="Assets/photos/moment-vision.jpg" alt="Members holding the vision boards they created together inside the church" loading="lazy" decoding="async">
+          <div class="moment__placeholder" role="img" aria-label="Members holding vision boards together">
+            <span class="moment__placeholder-label">Photo · Vision</span>
+          </div>
+          <figcaption class="moment__caption">
+            <span class="moment__caption-label">Dreaming together</span>
+            <span class="moment__caption-text">Pouring into who you're becoming, not just where you sit on Sunday.</span>
+          </figcaption>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRAYER ============ -->
+<section class="prayer" id="prayer" data-section-theme="dark" aria-labelledby="prayer-title">
+  <div class="container">
+    <div class="prayer__inner">
+
+      <div class="prayer__intro">
+        <p class="eyebrow prayer__eyebrow"><span>Request prayer</span></p>
+        <h2 class="prayer__title" id="prayer-title">
+          Whatever you're carrying, <em>you don't carry it alone.</em>
+        </h2>
+        <p class="prayer__text">
+          Our intercessory prayer team is standing by to pray with you and for you. Share what's on
+          your heart — in as much or as little detail as you'd like. Nothing is too big or too small
+          to bring before God.
+        </p>
+        <p class="prayer__assurance">Every request is held in confidence by our prayer team.</p>
+      </div>
+
+      <!-- FORMSPREE: replace the action URL with the prayer-team Formspree endpoint -->
+      <form class="prayer__form" action="https://formspree.io/f/REPLACE_WITH_PRAYER_FORM_ID" method="POST">
+        <div class="field field--full">
+          <label for="pr-name">Your name <span class="field__optional">(optional)</span></label>
+          <input type="text" id="pr-name" name="name" autocomplete="name" placeholder="You can share this anonymously">
+        </div>
+        <div class="field field--full">
+          <label for="pr-contact">Email or phone <span class="field__optional">(optional, if you'd like us to follow up)</span></label>
+          <input type="text" id="pr-contact" name="contact">
+        </div>
+        <div class="field field--full">
+          <label for="pr-request">Your prayer request</label>
+          <textarea id="pr-request" name="prayer_request" rows="4" required placeholder="Share what's on your heart…"></textarea>
+        </div>
+        <button type="submit" class="btn">
+          Send to our prayer team
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ GIVING ============ -->
+<section class="giving" id="give" data-section-theme="light" aria-labelledby="giving-title">
+  <div class="container">
+    <div class="giving__inner">
+
+      <div class="giving__intro">
+        <p class="eyebrow giving__eyebrow"><span>Giving</span></p>
+        <h2 class="giving__title" id="giving-title">
+          Partner with <em>the work.</em>
+        </h2>
+        <p class="giving__lead">
+          Your generosity is what lets Disciples of Christ keep showing up — feeding, clothing, and
+          carrying the love of Christ into the streets of Jacksonville. When you give, you're part of
+          that work.
+        </p>
+      </div>
+
+      <div class="giving__panel">
+        <p class="giving__panel-label">Ways to give</p>
+
+        <!-- CASHAPP: replace href with the church's CashApp link, e.g. https://cash.app/$DOCJax -->
+        <a class="give-method" href="REPLACE_WITH_CASHAPP_LINK" target="_blank" rel="noopener">
+          <span class="give-method__name">CashApp</span>
+          <span class="give-method__handle">$DOCJax</span>
+          <span class="give-method__arrow" aria-hidden="true">→</span>
+        </a>
+
+        <!-- PAYPAL: replace href with the church's PayPal.me link, e.g. https://paypal.me/DOCJax -->
+        <a class="give-method" href="REPLACE_WITH_PAYPAL_LINK" target="_blank" rel="noopener">
+          <span class="give-method__name">PayPal</span>
+          <span class="give-method__handle">paypal.me/DOCJax</span>
+          <span class="give-method__arrow" aria-hidden="true">→</span>
+        </a>
+
+        <p class="giving__panel-foot">
+          You can also give in person any Sunday. Every gift, of any size, is received with gratitude.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP ============ -->
+<section class="app" id="app" data-section-theme="dark" aria-labelledby="app-title">
+  <div class="container">
+    <div class="app__inner">
+
+      <div class="app__body">
+        <p class="eyebrow app__eyebrow"><span>The DOC app</span></p>
+        <h2 class="app__title" id="app-title">
+          Carry the church <em>in your pocket.</em>
+        </h2>
+        <p class="app__text">
+          Stay close to DOC all week long. Watch services live or catch up later, give in a tap,
+          send a prayer request, and never miss what's happening in the life of the church.
+        </p>
+
+        <ul class="app__features">
+          <li><span class="app__feature-dot" aria-hidden="true"></span>Watch worship live &amp; on demand</li>
+          <li><span class="app__feature-dot" aria-hidden="true"></span>Give securely from anywhere</li>
+          <li><span class="app__feature-dot" aria-hidden="true"></span>Send prayer requests anytime</li>
+          <li><span class="app__feature-dot" aria-hidden="true"></span>Stay up to date on events</li>
+        </ul>
+
+        <div class="app__actions">
+          <!-- Opens the live PWA; the app's own onboarding handles installation per-device -->
+          <a class="btn" id="installAppBtn" href="https://doc-app-pink.vercel.app" target="_blank" rel="noopener" data-app-open>
+            Open the App
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <button type="button" class="btn btn--ghost" id="howToInstallBtn" aria-haspopup="dialog" aria-controls="installModal">
+            How to install
+          </button>
+        </div>
+        <p class="app__hint" id="appHint">Free, works on any phone — no app store needed.</p>
+      </div>
+
+      <div class="app__visual" aria-hidden="true">
+        <div class="app__phone">
+          <div class="app__phone-notch"></div>
+          <div class="app__phone-screen">
+            <img class="app__phone-seal" src="Assets/photos/logo.png" alt="">
+            <p class="app__phone-name">Disciples of Christ</p>
+            <p class="app__phone-tag">Christian Fellowship</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Install instructions modal -->
+  <div class="install-modal" id="installModal" hidden>
+    <div class="install-modal__scrim" data-install-close></div>
+    <div class="install-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="installModalTitle">
+      <button type="button" class="install-modal__close" data-install-close aria-label="Close">&times;</button>
+      <p class="eyebrow"><span>Getting the app</span></p>
+      <h3 class="install-modal__title" id="installModalTitle">Add DOC to your phone</h3>
+      <p class="install-modal__lead">
+        The app installs straight from your browser — no app store, no account. Find your phone below.
+      </p>
+
+      <div class="install-modal__cols">
+        <div class="install-card">
+          <p class="install-card__head">
+            <svg class="install-card__logo" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+            iPhone &amp; iPad
+          </p>
+          <p class="install-card__note">Must be done in <strong>Safari</strong> — other browsers can't add it to your home screen.</p>
+          <ol class="install-card__steps">
+            <li>Open the app in <strong>Safari</strong> (tap <strong>Open the App</strong> above).</li>
+            <li>Tap the <strong>Share</strong> button (the square with an arrow) at the bottom of the screen.</li>
+            <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
+            <li>Tap <strong>Add</strong> in the top corner.</li>
+            <li>Open the DOC icon from your home screen — and allow notifications when asked, so you never miss what matters.</li>
+          </ol>
+        </div>
+
+        <div class="install-card">
+          <p class="install-card__head">
+            <svg class="install-card__logo install-card__logo--android" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8m17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5m-4.97-5.84 1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84M10 5H9V4h1zm5 0h-1V4h1z"/></svg>
+            Android
+          </p>
+          <p class="install-card__note">Works in <strong>Chrome</strong> and most browsers.</p>
+          <ol class="install-card__steps">
+            <li>Open the app in <strong>Chrome</strong> (tap <strong>Open the App</strong> above).</li>
+            <li>Tap the <strong>⋮</strong> menu in the top-right corner.</li>
+            <li>Tap <strong>Install app</strong> (or <strong>Add to Home screen</strong>).</li>
+            <li>Tap <strong>Install</strong> to confirm.</li>
+            <li>Open the DOC icon from your home screen — and allow notifications when asked, so you never miss what matters.</li>
+          </ol>
+        </div>
+      </div>
+
+      <a class="btn install-modal__cta" href="https://doc-app-pink.vercel.app" target="_blank" rel="noopener">
+        Open the App
+        <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__top">
+
+      <div>
+        <a href="#top" class="brand" aria-label="Disciples of Christ Christian Fellowship — back to top">
+          <img class="brand__seal" src="Assets/photos/logo.png" alt="Disciples of Christ Christian Fellowship seal">
+          <span class="brand__name">
+            Disciples of Christ
+            <em>Christian Fellowship</em>
+          </span>
+        </a>
+        <p class="site-footer__brand-tag">Called to serve. Sent to love. Rooted in Jacksonville since 2010.</p>
+        <div class="footer-social">
+          <a class="footer-social__link" href="https://www.youtube.com/@DOCJax" target="_blank" rel="noopener" aria-label="Watch Disciples of Christ on YouTube">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>
+          </a>
+          <a class="footer-social__link" href="https://www.facebook.com/DOCRecharge2020" target="_blank" rel="noopener" aria-label="Follow Disciples of Christ on Facebook">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col__label">Visit</p>
+        <ul>
+          <li>2061 Edgewood Ave W</li>
+          <li>Jacksonville, FL 32208</li>
+          <li><a href="https://maps.apple.com/?address=2061+Edgewood+Ave+W,+Jacksonville,+FL+32208" target="_blank" rel="noopener">Apple Maps</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=2061+Edgewood+Ave+W,+Jacksonville,+FL+32208" target="_blank" rel="noopener">Google Maps</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col__label">Gather</p>
+        <ul>
+          <li>Sunday · 9:00 AM</li>
+          <li>Wednesday · 6:15 PM</li>
+          <li><a href="https://www.youtube.com/@DOCJax/streams" target="_blank" rel="noopener">Watch online</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col__label">Connect</p>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="get-involved.html">Get involved</a></li>
+          <li><a href="#give">Giving</a></li>
+          <li><a href="#prayer">Request prayer</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>© <span id="year">2026</span> Disciples of Christ Christian Fellowship</span>
+      <a class="footer-credit" href="REPLACE_WITH_MERX_URL" target="_blank" rel="noopener" aria-label="Crafted by Merx Studios">
+        <span class="footer-credit__label">Crafted by</span>
+        <span class="footer-credit__mark" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M14 42 L14 18 L21 18 L28 30 L35 18 L42 18 L42 42" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/>
+          </svg>
+        </span>
+        <span class="footer-credit__name">Merx Studios</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year (guarded)
+  var yearEl = document.getElementById('year');
+  if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
+  // Adaptive nav: detect which section sits behind the header and match its theme.
+  (function () {
+    var siteHeader = document.querySelector('.site-header');
+    if (!siteHeader) return;
+
+    var sections = Array.prototype.slice.call(document.querySelectorAll('[data-section-theme]'));
+    if (!sections.length) return;
+
+    // Apply the theme of whichever section currently crosses the header line.
+    function applyTheme() {
+      // The line just below the header where we sample the section
+      var sampleY = siteHeader.offsetHeight * 0.5;
+      var current = sections[0];
+
+      for (var i = 0; i < sections.length; i++) {
+        var rect = sections[i].getBoundingClientRect();
+        if (rect.top <= sampleY && rect.bottom > sampleY) {
+          current = sections[i];
+          break;
+        }
+      }
+
+      var theme = current.getAttribute('data-section-theme') || 'dark';
+      if (theme === 'light') {
+        siteHeader.classList.add('nav-on-light');
+        siteHeader.classList.remove('nav-on-dark');
+      } else {
+        siteHeader.classList.add('nav-on-dark');
+        siteHeader.classList.remove('nav-on-light');
+      }
+
+      // Solid bar once we've scrolled past the very top
+      if (window.pageYOffset > 40 || document.documentElement.scrollTop > 40) {
+        siteHeader.classList.add('is-scrolled');
+      } else {
+        siteHeader.classList.remove('is-scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', applyTheme, { passive: true });
+    window.addEventListener('resize', applyTheme, { passive: true });
+    document.addEventListener('DOMContentLoaded', applyTheme);
+    applyTheme();
+  })();
+
+  // Custom party-size dropdown — premium UI synced to a hidden native select
+  (function () {
+    var dropdown = document.querySelector('[data-dropdown]');
+    if (!dropdown) return;
+
+    var trigger = dropdown.querySelector('.dropdown__trigger');
+    var menu = dropdown.querySelector('.dropdown__menu');
+    var valueEl = dropdown.querySelector('.dropdown__value');
+    var options = Array.prototype.slice.call(dropdown.querySelectorAll('.dropdown__option'));
+    var nativeSelect = document.getElementById('vf-party');
+    var activeIndex = -1;
+
+    function openMenu() {
+      dropdown.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      var selected = -1;
+      options.forEach(function (o, idx) { if (o.getAttribute('aria-selected') === 'true') selected = idx; });
+      setActive(selected >= 0 ? selected : 0);
+    }
+
+    function closeMenu() {
+      dropdown.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      clearActive();
+    }
+
+    function toggleMenu() {
+      if (dropdown.classList.contains('is-open')) { closeMenu(); }
+      else { openMenu(); }
+    }
+
+    function setActive(i) {
+      clearActive();
+      if (i < 0 || i >= options.length) return;
+      activeIndex = i;
+      options[i].classList.add('is-active');
+    }
+
+    function clearActive() {
+      options.forEach(function (o) { o.classList.remove('is-active'); });
+      activeIndex = -1;
+    }
+
+    function choose(option) {
+      var val = option.getAttribute('data-value');
+      options.forEach(function (o) { o.setAttribute('aria-selected', 'false'); });
+      option.setAttribute('aria-selected', 'true');
+      valueEl.textContent = val;
+      valueEl.removeAttribute('data-placeholder');
+      if (nativeSelect) { nativeSelect.value = val; }
+      closeMenu();
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', toggleMenu);
+
+    options.forEach(function (option, i) {
+      option.addEventListener('click', function () { choose(option); });
+      option.addEventListener('mouseenter', function () { setActive(i); });
+    });
+
+    trigger.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (!dropdown.classList.contains('is-open')) { openMenu(); }
+        else if (e.key === 'Enter' && activeIndex >= 0) { choose(options[activeIndex]); }
+        else { setActive(Math.min(activeIndex + 1, options.length - 1)); }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (dropdown.classList.contains('is-open')) { setActive(Math.max(activeIndex - 1, 0)); }
+      } else if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dropdown.contains(e.target)) { closeMenu(); }
+    });
+  })();
+
+  // Install instructions modal — open/close with focus management + scroll lock.
+  (function () {
+    var openBtn = document.getElementById('howToInstallBtn');
+    var modal = document.getElementById('installModal');
+    if (!openBtn || !modal) return;
+
+    var lastFocused = null;
+
+    function openModal() {
+      lastFocused = document.activeElement;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var closeBtn = modal.querySelector('.install-modal__close');
+      if (closeBtn) closeBtn.focus();
+      document.addEventListener('keydown', onKeydown);
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKeydown);
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    function onKeydown(e) {
+      if (e.key === 'Escape') closeModal();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    modal.querySelectorAll('[data-install-close]').forEach(function (el) {
+      el.addEventListener('click', closeModal);
+    });
+  })();
+
+  // Mobile menu toggle (guarded)
+  var toggle = document.querySelector('.menu-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      var expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+  }
+
+  // Hero video — force autoplay and smooth crossfade loop
+  var heroVideo = document.getElementById('heroVideo');
+  if (heroVideo) {
+    var FADE_DURATION = 1.5;
+    var isFading = false;
+
+    function forcePlay() {
+      heroVideo.muted = true;
+      var playPromise = heroVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          document.addEventListener('click', function retryPlay() {
+            heroVideo.play();
+            document.removeEventListener('click', retryPlay);
+          }, { once: true });
+        });
+      }
+    }
+
+    heroVideo.addEventListener('loadeddata', forcePlay);
+    heroVideo.addEventListener('canplay', forcePlay);
+    if (heroVideo.readyState >= 2) { forcePlay(); }
+    setTimeout(forcePlay, 500);
+    setTimeout(forcePlay, 1500);
+
+    // Mobile stall recovery: if the video buffers mid-play and freezes
+    // (common on cellular/iOS), nudge it back into playing once data arrives.
+    heroVideo.addEventListener('stalled', forcePlay);
+    heroVideo.addEventListener('waiting', forcePlay);
+    heroVideo.addEventListener('suspend', function () {
+      if (heroVideo.paused && !heroVideo.ended) { forcePlay(); }
+    });
+    // If the page is hidden then returns to foreground (tab switch, unlock),
+    // iOS often pauses the video — resume it on return.
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && heroVideo.paused && !isFading) { forcePlay(); }
+    });
+
+    heroVideo.addEventListener('timeupdate', function () {
+      if (!heroVideo.duration || isFading) return;
+      var timeLeft = heroVideo.duration - heroVideo.currentTime;
+      if (timeLeft <= FADE_DURATION && !isFading) {
+        isFading = true;
+        heroVideo.classList.add('is-fading');
+        setTimeout(function () {
+          heroVideo.currentTime = 0;
+          heroVideo.play();
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              heroVideo.classList.remove('is-fading');
+              isFading = false;
+            });
+          });
+        }, 1200);
+      }
+    });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      heroVideo.pause();
+      heroVideo.style.opacity = '0.3';
+      heroVideo.currentTime = 0;
+    }
+  }
+</script>
+
+</body>
+</html>
