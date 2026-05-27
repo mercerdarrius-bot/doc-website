@@ -1320,7 +1320,10 @@ ul { list-style: none; padding: 0; }
       </div>
 
       <!-- FORMSPREE: replace the action URL with the member-involvement Formspree endpoint -->
-      <form class="gi-form" action="https://formspree.io/f/REPLACE_WITH_INVOLVEMENT_FORM_ID" method="POST">
+      <form class="gi-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="6e0eeb6c-ef4a-4b49-bbb5-0102ef10ea9d">
+        <input type="hidden" name="subject" value="New get-involved submission — DOCCF">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field">
           <label for="gi-name">Your name</label>
           <input type="text" id="gi-name" name="name" autocomplete="name" required>
