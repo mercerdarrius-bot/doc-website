@@ -1807,6 +1807,92 @@ ul { list-style: none; padding: 0; }
   .moment--wide { grid-column: 1 / -1; }
 }
 
+/* ---------- Food Pantry ---------- */
+.pantry {
+  background: var(--linen);
+  padding-block: 6rem;
+}
+
+.pantry__inner {
+  max-width: 60ch;
+}
+
+.pantry__eyebrow {
+  margin-bottom: 1.5rem;
+  color: var(--royal);
+}
+.pantry__eyebrow::before { background: var(--royal); }
+
+.pantry__title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--purple-deep);
+  max-width: 18ch;
+}
+
+.pantry__title em {
+  font-style: italic;
+  color: var(--royal);
+}
+
+.pantry__text {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 54ch;
+  margin-top: 1.5rem;
+}
+
+.pantry__detail {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--royal);
+  margin-top: 1.75rem;
+}
+
+.pantry__contact {
+  font-size: 1rem;
+  color: var(--ink);
+  margin-top: 1.25rem;
+}
+.pantry__contact a {
+  color: var(--royal);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(74, 46, 107, 0.3);
+  transition: border-color 300ms var(--ease);
+}
+.pantry__contact a:hover { border-color: var(--royal); }
+
+.pantry__icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.pantry__icon {
+  width: 56px;
+  height: 56px;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.pantry__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (min-width: 700px) {
+  .pantry__icons { gap: 3.5rem; }
+  .pantry__icon { width: 64px; height: 64px; }
+}
+
 /* ---------- Prayer ---------- */
 .prayer {
   background: var(--purple-deep);
@@ -2732,6 +2818,79 @@ ul { list-style: none; padding: 0; }
           </figcaption>
         </div>
       </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOD PANTRY ============ -->
+<section class="pantry" id="pantry" data-section-theme="light" aria-labelledby="pantry-title">
+  <div class="container">
+    <div class="pantry__inner">
+      <p class="eyebrow pantry__eyebrow"><span>Every second Wednesday</span></p>
+      <h2 class="pantry__title" id="pantry-title">
+        There's food on the table for <em>whoever needs it.</em>
+      </h2>
+      <p class="pantry__text">
+        Twice a month, the doors open wider. Our food pantry is here for
+        anyone in need, no questions, no qualifications, just neighbors
+        showing up for neighbors.
+      </p>
+      <p class="pantry__text">
+        Every second Wednesday. Come as you are.
+      </p>
+
+      <!-- PANTRY TIME: replace the placeholder below with the actual time -->
+      <p class="pantry__detail">Doors open [time to be confirmed]</p>
+
+      <p class="pantry__contact">
+        Questions? Call us at <a href="tel:+19047655683">(904) 765-5683</a>
+      </p>
+
+      <!-- Outline-style pantry icons, single Ink stroke, decorative -->
+      <div class="pantry__icons" aria-hidden="true">
+        <!-- Loaf of bread -->
+        <span class="pantry__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 38c-4 0-7-3-7-7 0-4 3-6 6-7 1-7 7-12 13-12s12 5 13 12c3 1 6 3 6 7 0 4-3 7-7 7z"/>
+            <path d="M14 38v12a2 2 0 0 0 2 2h32a2 2 0 0 0 2-2V38"/>
+            <path d="M24 26v18M32 25v19M40 26v18"/>
+          </svg>
+        </span>
+        <!-- Apple -->
+        <span class="pantry__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 22c-4-4-11-4-15 0-5 5-4 16 1 23 3 4 6 6 9 6 2 0 3-1 5-1s3 1 5 1c3 0 6-2 9-6 5-7 6-18 1-23-4-4-11-4-15 0z"/>
+            <path d="M32 22c0-5 3-9 8-10"/>
+            <path d="M32 22c-1-3-3-5-6-6"/>
+          </svg>
+        </span>
+        <!-- Can -->
+        <span class="pantry__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="32" cy="16" rx="16" ry="6"/>
+            <path d="M16 16v32c0 3.3 7.2 6 16 6s16-2.7 16-6V16"/>
+            <path d="M16 32c0 3.3 7.2 6 16 6s16-2.7 16-6"/>
+          </svg>
+        </span>
+        <!-- Milk carton -->
+        <span class="pantry__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 24h24v28a2 2 0 0 1-2 2H22a2 2 0 0 1-2-2z"/>
+            <path d="M20 24l5-8h14l5 8"/>
+            <path d="M25 16v-4h14v4"/>
+            <path d="M28 34h8"/>
+          </svg>
+        </span>
+        <!-- Bag of rice -->
+        <span class="pantry__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 22c-3 0-5 2-5 5v22a3 3 0 0 0 3 3h24a3 3 0 0 0 3-3V27c0-3-2-5-5-5z"/>
+            <path d="M24 22l-2-6h20l-2 6"/>
+            <path d="M28 16c0-2 1-4 4-4s4 2 4 4"/>
+            <path d="M26 36h12M26 42h12"/>
+          </svg>
+        </span>
+      </div>
     </div>
   </div>
 </section>
