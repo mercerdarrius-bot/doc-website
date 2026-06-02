@@ -223,15 +223,44 @@ ul { list-style: none; padding: 0; }
   transform: translateY(-1px);
 }
 
+/* App link (mirrors index.html — was missing on this page, which left the
+   App icon/link unstyled next to Giving). */
+.site-nav__app {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6875rem 1.125rem;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  transition: color 250ms var(--ease), background-color 250ms var(--ease), border-color 250ms var(--ease);
+  white-space: nowrap;
+}
+
+.site-nav__app svg { flex-shrink: 0; }
+
+.site-nav__app:hover,
+.site-nav__app:focus-visible {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--purple-deep);
+}
+
 /* ===== Adaptive nav theming - driven by JS as you scroll past sections ===== */
 /* Over a DARK section: light text, transparent (or dark frosted when scrolled) */
 .site-header.nav-on-dark .brand__name { color: var(--linen); }
 .site-header.nav-on-dark .site-nav__link { color: var(--linen); }
+.site-header.nav-on-dark .site-nav__app { color: var(--linen); }
 .site-header.nav-on-dark .menu-toggle span { background: var(--linen); }
 
 /* Over a LIGHT section: dark text */
 .site-header.nav-on-light .brand__name { color: var(--purple-deep); }
 .site-header.nav-on-light .site-nav__link { color: var(--purple-deep); }
+.site-header.nav-on-light .site-nav__app { color: var(--purple-deep); }
 .site-header.nav-on-light .menu-toggle span { background: var(--purple-deep); }
 
 /* Solid bar appears once scrolled, colored to match the section underneath */
