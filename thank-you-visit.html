@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js): GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WJPQN6E0D7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WJPQN6E0D7');
-  gtag('event', 'form_submit', { form_name: 'visit' });
-</script>
 <!-- Merx Analytics: cookieless and first party (see privacy.html). Plain tags on purpose:
      the daily tag check reads the served HTML. /mx/ is proxied in vercel.json. -->
 <script>window.mx=window.mx||function(){(window.mx.q=window.mx.q||[]).push(arguments)}</script>
@@ -19,9 +10,19 @@
 <title>We've got you - Disciples of Christ Christian Fellowship</title>
 <meta name="description" content="We received your visit request. Our hospitality team will be ready for you on Sunday.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Fonts: self-hosted copies of the Google Fonts files (same files, no request to Google). -->
+<link rel="preload" href="/Assets/fonts/fraunces-roman-latin.175f6e93.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/Assets/fonts/dm-sans-roman-latin.780cf59b.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(/Assets/fonts/dm-sans-roman-latin-ext.9c9bc592.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(/Assets/fonts/dm-sans-roman-latin.780cf59b.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:400 500;font-display:swap;src:url(/Assets/fonts/fraunces-italic-latin-ext.adcc5af9.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:400 500;font-display:swap;src:url(/Assets/fonts/fraunces-italic-latin.952fb377.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 500;font-display:swap;src:url(/Assets/fonts/fraunces-roman-latin-ext.ffbbcc88.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 500;font-display:swap;src:url(/Assets/fonts/fraunces-roman-latin.175f6e93.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 500;font-display:swap;src:url(/Assets/fonts/jetbrains-mono-roman-latin-ext.7eed183e.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 500;font-display:swap;src:url(/Assets/fonts/jetbrains-mono-roman-latin.340e696a.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+</style>
 
 <style>
 /* =============================================
@@ -623,7 +624,7 @@ ul { list-style: none; padding: 0; }
 <header class="site-header" role="banner">
   <div class="container">
     <a href="index.html#top" class="brand" aria-label="Disciples of Christ Christian Fellowship - home">
-      <img class="brand__seal" src="Assets/photos/logo.png" alt="Disciples of Christ Christian Fellowship seal">
+      <img class="brand__seal" src="Assets/photos/logo-256.png" alt="Disciples of Christ Christian Fellowship seal">
       <span class="brand__name">
         Disciples of Christ
         <em>Christian Fellowship</em>
@@ -676,7 +677,7 @@ ul { list-style: none; padding: 0; }
 
       <div>
         <a href="index.html#top" class="brand" aria-label="Disciples of Christ Christian Fellowship - back to top">
-          <img class="brand__seal" src="Assets/photos/logo.png" alt="Disciples of Christ Christian Fellowship seal" loading="lazy" decoding="async">
+          <img class="brand__seal" src="Assets/photos/logo-256.png" alt="Disciples of Christ Christian Fellowship seal" loading="lazy" decoding="async">
           <span class="brand__name">
             Disciples of Christ
             <em>Christian Fellowship</em>
